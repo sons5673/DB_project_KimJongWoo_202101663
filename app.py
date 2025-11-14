@@ -15,7 +15,7 @@ def index():
     category = request.args.get('category','')
 
     if category:
-        equipments = conn.execute('SELECT * FROM equipments WHERE category = ?', (category,)).fetchall
+        equipments = conn.execute('SELECT * FROM equipments WHERE category = ?', (category,)).fetchall()
     else:
         equipments = conn.execute('SELECT * FROM equipments').fetchall()
 
