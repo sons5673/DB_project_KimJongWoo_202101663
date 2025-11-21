@@ -30,8 +30,16 @@ def init_database():
         csv_reader = csv.DictReader(file)
 
         for row in csv_reader:
-            # CSV 데이터를 DB에 insert하는 코드가 여기에 들어갈 예정
-            pass
+            name = row['장비명']
+            category = row['분류']
+            rental_fee = int(row['대여료']) if row['대여료'] else 0
+            quantity = int(row['보유수량']) if row['보유수량'] else 0
+            availability = row['대여가능여부']
+
+            cursor.execute(
+                'INSERT INTO equipments (name, category, rental_fee, quantity, availability) VALUES (?, ?, ?, ?, ?)',
+                (name, category, rental_fee, quantity, availability)
+            )
 
     print("CSV 파일 읽기 완료!")
 
