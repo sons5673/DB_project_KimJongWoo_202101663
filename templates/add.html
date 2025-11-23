@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}장비 추가{% endblock %}
+
+{% block content %}
+<h2>새 장비 추가</h2>
+
+<form method="POST" action="/add">
+    <div class="form-group">
+        <label for="name">장비명:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="category">분류:</label>
+        <input type="text" id="category" name="category" required>
+    </div>
+
+    <div class="form-group">
+        <label for="rental_fee">대여료:</label>
+        <input type="number" id="rental_fee" name="rental_fee" required>
+    </div>
+
+    <div class="form-group">
+        <label for="quantity">보유수량:</label>
+        <input type="number" id="quantity" name="quantity" required>
+    </div>
+
+    <div class="form-group">
+        <label for="availability">대여가능여부:</label>
+        <select id="availability" name="availability" required>
+            <option value="가능">가능</option>
+            <option value="불가능">불가능</option>
+        </select>
+    </div>
+
+    <div class="form-buttons">
+        <button type="submit" class="btn-submit">추가</button>
+        <a href="/" class="btn-cancel">취소</a>
+    </div>
+</form>
+{% endblock %}
